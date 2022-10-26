@@ -36,6 +36,10 @@ public class Aluno extends Pessoa{
         this.RA = geraRaAluno();
     }
     
+    public Aluno(String nome, String CPF, String email, String telefone,boolean ativo) {
+        super(nome, CPF, email, telefone, ativo);
+    }
+    
     
     
     

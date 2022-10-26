@@ -5,6 +5,7 @@
 package br.ifpr.biblioteca.dao;
 
 import br.ifpr.biblioteca.modelo.Aluno;
+import br.ifpr.biblioteca.modelo.Pessoa;
 import java.util.List;
 
 /**
@@ -17,7 +18,12 @@ public interface AlunoDao {
 
     public Aluno buscarPorId(Integer Id);
     
+    
     public List<Aluno> buscarPorIdList(Integer id);
+    
+    public List<Aluno> buscarPorCPFList(String cpf);
+    
+    public List<Aluno> buscarPorNomeList(String nome);
 
     public void atualizar(Aluno aluno);
 

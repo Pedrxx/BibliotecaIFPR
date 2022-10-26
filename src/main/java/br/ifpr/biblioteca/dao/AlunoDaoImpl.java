@@ -6,6 +6,7 @@ package br.ifpr.biblioteca.dao;
 
 import br.ifpr.biblioteca.conexao.HibernateUtil;
 import br.ifpr.biblioteca.modelo.Aluno;
+import br.ifpr.biblioteca.modelo.Pessoa;
 import java.util.List;
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
@@ -107,5 +108,30 @@ public class AlunoDaoImpl implements AlunoDao {
         }
         return aluno;
     }
+
+    @Override
+    public List<Aluno> buscarPorCPFList(String cpf) {
+        List<Aluno> aluno = null;
+            try {
+                sessao.beginTransaction();
+                aluno = (List<Aluno>) this.sessao.createQuery("from Aluno where cpf_pessoa = " + cpf).list();
+                sessao.getTransaction().commit();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return aluno;    
+    }
+
+    @Override
+    public List<Aluno> buscarPorNomeList(String nome) {
+        List<Aluno> aluno = null;
+            try {
+                sessao.beginTransaction();
+                aluno = (List<Aluno>) this.sessao.createQuery("from Aluno where nome_pessoa like '"+nome+"%'").list();
+                sessao.getTransaction().commit();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return aluno;    }
     
 }

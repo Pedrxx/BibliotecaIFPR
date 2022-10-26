@@ -31,7 +31,7 @@ public class ViewAlunos extends javax.swing.JInternalFrame {
         atualizarTabelaView();
     }
     
-    private void popularTabelaView(List<Pessoa> listaPessoa) {
+    private void popularTabelaView(List<Aluno> listaAluno) {
         
         DefaultTableModel modeloTabela = new DefaultTableModel();
         
@@ -43,17 +43,19 @@ public class ViewAlunos extends javax.swing.JInternalFrame {
         modeloTabela.addColumn("Telefone");
         modeloTabela.addColumn("CPF");
         modeloTabela.addColumn("Ativo");
+        modeloTabela.addColumn("RA");
         
         
-        for(Pessoa pessoa: listaPessoa) {
+        for(Aluno aluno: listaAluno) {
             modeloTabela.addRow(
                     new Object[]{
-                        pessoa.getPessoaID(),
-                        pessoa.getNome(),
-                        pessoa.getEmail(),
-                        pessoa.getTelefone(),
-                        pessoa.getCPF(),
-                        pessoa.getAtivo(),
+                        aluno.getPessoaID(),
+                        aluno.getNome(),
+                        aluno.getEmail(),
+                        aluno.getTelefone(),
+                        aluno.getCPF(),
+                        aluno.getAtivo(),
+                        aluno.getRA()
                         
                 }
             );
@@ -62,45 +64,46 @@ public class ViewAlunos extends javax.swing.JInternalFrame {
     }
     
     private void atualizarTabelaView() {
-        PessoaDaoImpl dao = new PessoaDaoImpl();
+        AlunoDaoImpl dao = new AlunoDaoImpl();
         
-        List<Pessoa> listaPessoa = new ArrayList();
+        List<Aluno> listaAluno = new ArrayList();
         
-        listaPessoa = dao.buscarTodos();
+        listaAluno = dao.buscarTodos();
         
-        this.popularTabelaView(listaPessoa);
+        this.popularTabelaView(listaAluno);
     }
     
     private void FiltraAlunosId() {
-        PessoaDaoImpl dao = new PessoaDaoImpl();
+        AlunoDaoImpl dao = new AlunoDaoImpl();
         
-        List<Pessoa> listaPessoa = new ArrayList();
+        List<Aluno> listaAluno = new ArrayList();
         
-        listaPessoa = dao.buscarPorIdList(Integer.parseInt(jTextField2.getText()));
+        listaAluno = dao.buscarPorIdList(Integer.parseInt(jTextField2.getText()));
         
-        this.popularTabelaView(listaPessoa);
+        this.popularTabelaView(listaAluno);
     }
     
+    
     private void FiltraAlunosCPF() {
-        PessoaDaoImpl dao = new PessoaDaoImpl();
+        AlunoDaoImpl dao = new AlunoDaoImpl();
         
-        List<Pessoa> listaPessoa = new ArrayList();
+        List<Aluno> listaAluno = new ArrayList();
         
-        listaPessoa = dao.buscarPorCPFList(jTextField2.getText());
+        listaAluno = dao.buscarPorCPFList(jTextField2.getText());        
         
-        this.popularTabelaView(listaPessoa);
+        this.popularTabelaView(listaAluno);
     }
     
     private void FiltraAlunosNome() {
-        PessoaDaoImpl dao = new PessoaDaoImpl();
+        AlunoDaoImpl dao = new AlunoDaoImpl();
         
-        List<Pessoa> listaPessoa = new ArrayList();
+        List<Aluno> listaAluno = new ArrayList();
         
-        listaPessoa = dao.buscarPorNomeList(jTextField2.getText());
-        
-        this.popularTabelaView(listaPessoa);
+        listaAluno = dao.buscarPorNomeList(jTextField2.getText());
+
+        this.popularTabelaView(listaAluno);
     }
-    
+
     
 
     /**

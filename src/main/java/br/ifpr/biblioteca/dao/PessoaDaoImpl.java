@@ -46,19 +46,6 @@ public class PessoaDaoImpl implements PessoaDao {
         }
         return pessoa;
     }
-    
-    @Override
-    public List<Pessoa> buscarPorIdList(Integer id) {
-        List<Pessoa> pessoa = null;
-        try {
-            sessao.beginTransaction();
-            pessoa = (List<Pessoa>) this.sessao.createQuery("from Pessoa where id_pessoa = "+ id).list();
-            sessao.getTransaction().commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return pessoa;
-    }
 
     @Override
     public void inserir(Pessoa pessoa) {
@@ -107,6 +94,19 @@ public class PessoaDaoImpl implements PessoaDao {
         return pessoa;
     
         
+    }
+    
+    @Override
+    public List<Pessoa> buscarPorIdList(Integer id) {
+        List<Pessoa> pessoa = null;
+        try {
+            sessao.beginTransaction();
+            pessoa = (List<Pessoa>) this.sessao.createQuery("from Pessoa where id_pessoa = "+ id).list();
+            sessao.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return pessoa;
     }
 
     @Override
