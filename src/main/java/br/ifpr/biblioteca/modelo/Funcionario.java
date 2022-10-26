@@ -21,12 +21,14 @@ import java.util.Date;
 @Table(name="tb_funcionario")
 public class Funcionario extends Pessoa{
     
-    @Column(name="ciap_funcionario", unique=true, nullable=false)
-    private String CIAP;
+    @Column(name="siape_funcionario", unique=true, nullable=false)
+    private String SIAPE;
     
-    public Funcionario(String CIAP, String nome, String CPF, String email, String telefone, String senha, boolean ativo) {   
-        super(nome,CPF,email,telefone,senha,ativo);
-        this.CIAP = CIAP;
+    public Funcionario() {}
+    
+    public Funcionario(String SIAPE, String nome, String CPF, String email, String telefone, String senha) {   
+        super(nome,CPF,email,telefone,senha);
+        this.SIAPE = SIAPE;
     
     }
     

@@ -15,12 +15,16 @@ public interface AlunoDao {
     
     public List<Aluno> buscarTodos();
 
-    public Aluno buscarPorRA(Integer RA);
+    public Aluno buscarPorId(Integer Id);
+    
+    public List<Aluno> buscarPorIdList(Integer id);
 
-    public void atualizar(Aluno localizacao);
+    public void atualizar(Aluno aluno);
 
-    public void excluir(Aluno localizacao);
+    public void excluir(Aluno aluno);
 
-    public void inserir(Aluno localizacao);
+    public void inserir(Aluno aluno);
+    
+    public Aluno RetornaIdPorRa(Integer RA);
     
 }

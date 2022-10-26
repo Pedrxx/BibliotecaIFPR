@@ -21,11 +21,10 @@ public class LoginServico {
            
        } else {
            
-           JOptionPane.showMessageDialog(null, "Login ou senha inválidos!");
+           JOptionPane.showMessageDialog(null, "Login ou senha invÃ¡lidos!");
            
            return false;
        
        }     
-    } 
-    
+    }
 }

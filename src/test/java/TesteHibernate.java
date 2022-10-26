@@ -19,7 +19,10 @@ public class TesteHibernate {
     
     public static void main(String[] args) {
         
-        Session sessao = HibernateUtil.getSession();
+        HibernateUtil sessao = new HibernateUtil();
+        
+        sessao.getSession();
+        /*
         sessao.beginTransaction();
         
         Pessoa pessoa = new Pessoa(
@@ -34,7 +37,7 @@ public class TesteHibernate {
         sessao.save(pessoa);
         sessao.getTransaction().commit();
         HibernateUtil.encerraSession();
-        
+        */
         
         
     }

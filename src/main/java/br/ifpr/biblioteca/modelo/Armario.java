@@ -1,4 +1,5 @@
 package br.ifpr.biblioteca.modelo;
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,34 +10,23 @@ import javax.persistence.Table;
 
 @Entity 
 @Table(name = "tb_armario")
-public class Armario {
+public class Armario{
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_armario", unique = true, nullable = false)
     private Integer armarioID;
     @Column(name = "armario_ativo", unique = false, nullable = false)
-    private boolean ativo;
+    private String ativo;
     @Column(name = "armario_locado", unique = false, nullable = false)
-    private boolean locado;
+    private String locado;
     
     
-
-    public Armario() {
-    }
-
-    public Armario(String numero, boolean ativo, boolean locado) {
-        this.armarioID = armarioID;
+    public Armario() {}
+    
+    public Armario(Integer id, String ativo, String locado) {
+        this.armarioID = id;
         this.ativo = ativo;
         this.locado = locado;
-    }
-    
-    public void alugaArmario() {
-        this.locado = true;
-    }
-    
-    public void devolveArmario(String RA) {
-        this.locado = false;
     }
 
     /**
@@ -56,15 +46,44 @@ public class Armario {
     /**
      * @return the ativo
      */
-    public boolean isAtivo() {
-        return ativo;
+    public String isAtivo() {
+        return getAtivo();
     }
 
     /**
      * @param ativo the ativo to set
      */
-    public void setAtivo(boolean ativo) {
+    public void setAtivo(String ativo) {
         this.ativo = ativo;
     }
+
+    /**
+     * @return the ativo
+     */
+    public String getAtivo() {
+        return ativo;
+    }
+
+    /**
+     * @return the locado
+     */
+    public String getLocado() {
+        return locado;
+    }
+
+    /**
+     * @param locado the locado to set
+     */
+    public void setLocado(String locado) {
+        this.locado = locado;
+    }
+
+    @Override
+    public String toString() {
+        return  "" + armarioID + ' ';
+    }
+
+    
+    
     
 }

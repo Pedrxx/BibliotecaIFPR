@@ -18,13 +18,13 @@ public class Conexao {
 
     private static final String URL = "jdbc:mysql://localhost:3306/db_reserva";
     private static final String USER = "root";
-    private static final String PASS = "";
+    private static final String PASSWORD = "";
     private static final String DRIVER = "com.mysql.jdbc.Driver";
 
     public static Connection getConnection() {
         try {
             Class.forName(DRIVER);
-            return DriverManager.getConnection(URL, USER, PASS);
+            return DriverManager.getConnection(URL, USER, PASSWORD);
         } catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException("Erro na conexão com o Banco de Dados: " + e);
         }

@@ -8,7 +8,6 @@ package br.ifpr.biblioteca.conexao;
  *
  * @author pedro
  */
-package br.edu.ifpr.paranavai.armarios.conexao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;

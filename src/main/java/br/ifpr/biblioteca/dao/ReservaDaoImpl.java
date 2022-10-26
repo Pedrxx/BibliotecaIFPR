@@ -48,7 +48,7 @@ public class ReservaDaoImpl implements ReservaDao {
     public void inserir(Reserva reserva) {
         try {
             sessao.beginTransaction();
-            sessao.persist(reserva);
+            sessao.save(reserva);
             sessao.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();

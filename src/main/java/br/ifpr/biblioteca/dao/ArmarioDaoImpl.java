@@ -16,7 +16,7 @@ import org.hibernate.Session;
  */
 public class ArmarioDaoImpl implements ArmarioDao {
 
-    private Session sessao;
+    private Session sessao = HibernateUtil.getSession();
 
     public ArmarioDaoImpl(){
         this.sessao = HibernateUtil.getSession();
@@ -27,7 +27,7 @@ public class ArmarioDaoImpl implements ArmarioDao {
         List<Armario> armario = null;
         try {
             sessao.beginTransaction();
-            armario = (List<Armario>) this.sessao.createQuery("from Aluno").list();
+            armario = (List<Armario>) this.sessao.createQuery("from Armario").list();
             sessao.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
@@ -52,7 +52,7 @@ public class ArmarioDaoImpl implements ArmarioDao {
     public void inserir(Armario armario) {
         try {
             sessao.beginTransaction();
-            sessao.persist(armario);
+            sessao.save(armario);
             sessao.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
@@ -60,10 +60,10 @@ public class ArmarioDaoImpl implements ArmarioDao {
     }
 
     @Override
-    public void atualizar(Armario aluno) {
+    public void atualizar(Armario armario) {
         try {
             sessao.beginTransaction();
-            sessao.update(aluno);
+            sessao.update(armario);
             sessao.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();

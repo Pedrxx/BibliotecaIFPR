@@ -9,6 +9,7 @@ import br.ifpr.biblioteca.modelo.Aluno;
 import java.util.List;
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 /**
  *
@@ -37,11 +38,24 @@ public class AlunoDaoImpl implements AlunoDao {
     }
 
     @Override
-    public Aluno buscarPorRA(Integer RA) {
+    public Aluno buscarPorId(Integer id) {
         Aluno aluno = null;
         try {
             sessao.beginTransaction();
-            aluno = (Aluno) sessao.get(Aluno.class, RA);
+            aluno = (Aluno) sessao.get(Aluno.class, id);
+            sessao.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return aluno;
+    }
+    
+    @Override
+    public List<Aluno> buscarPorIdList(Integer id) {
+        List<Aluno> aluno = null;
+        try {
+            sessao.beginTransaction();
+            aluno = (List<Aluno>) this.sessao.get(Aluno.class, id);
             sessao.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
@@ -53,14 +67,13 @@ public class AlunoDaoImpl implements AlunoDao {
     public void inserir(Aluno aluno) {
         try {
             sessao.beginTransaction();
-            sessao.persist(aluno);
+            sessao.save(aluno);
             sessao.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    @Override
     public void atualizar(Aluno aluno) {
         try {
             sessao.beginTransaction();
@@ -80,6 +93,19 @@ public class AlunoDaoImpl implements AlunoDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    
+    @Override
+    public Aluno RetornaIdPorRa(Integer RA) {
+        Aluno aluno = null;
+        try {
+            sessao.beginTransaction();
+            aluno = (Aluno) sessao.createQuery("select pessoaID from Aluno where RA = "+ RA);
+            sessao.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return aluno;
     }
     
 }

@@ -52,7 +52,7 @@ public class FuncionarioDaoImpl implements FuncionarioDao {
     public void inserir(Funcionario funcionario) {
         try {
             sessao.beginTransaction();
-            sessao.persist(funcionario);
+            sessao.save(funcionario);
             sessao.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();

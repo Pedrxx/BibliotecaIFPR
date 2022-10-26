@@ -4,6 +4,9 @@
  */
 package br.ifpr.biblioteca.servico;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Random;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,17 +16,17 @@ import javax.swing.JOptionPane;
 public class CadastroServico {
     
     public static boolean verificaSenhaCadastro(String senha, String cSenha) {
-        if (senha == cSenha){
+        if (senha.equals(cSenha)){
            
-           JOptionPane.showMessageDialog(null, "Senha valida!");
+           JOptionPane.showMessageDialog(null, "Senha válida!");
            return true;
            
        } else {
            
-           JOptionPane.showMessageDialog(null, "Senha não coencide!");
-           
+           JOptionPane.showMessageDialog(null, "Senha não confere!");        
            return false;
        
        }  
     }
+    
 }

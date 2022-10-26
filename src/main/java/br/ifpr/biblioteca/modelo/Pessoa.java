@@ -22,9 +22,8 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name="tb_pessoa")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class Pessoa implements Serializable {
+public class Pessoa {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -39,25 +38,31 @@ public class Pessoa implements Serializable {
     private String email;
     @Column(name = "telefone_pessoa", unique = false, nullable = false)
     private String telefone;
-    @Column(name = "senha_pessoa", unique = false, nullable = false)
-    private String senha;
     @Column(name = "ativo_pessoa", unique = false, nullable = false)
     private boolean ativo;
-    
+    @Column(name="senha_pessoa")
+    private String senha;
+
 
     public Pessoa() {
 
     }
 
-    public Pessoa(String nome, String CPF, String email, String telefone, String senha, boolean ativo) {
-        super();
+    public Pessoa(String nome, String CPF, String email, String telefone, String senha) {
         this.nome = nome;
         this.CPF = CPF;
         this.email = email;
         this.telefone = telefone;
+        this.ativo = true;
         this.senha = senha;
+    }
+    
+        public Pessoa(String nome, String CPF, String email, String telefone, boolean ativo) {
+        this.nome = nome;
+        this.CPF = CPF;
+        this.email = email;
+        this.telefone = telefone;
         this.ativo = ativo;
-        
     }
 
     
@@ -117,25 +122,11 @@ public class Pessoa implements Serializable {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
-
-    /**
-     * @return the senha
-     */
-    public String getSenha() {
-        return senha;
-    }
-
-    /**
-     * @param senha the senha to set
-     */
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
+    
     /**
      * @return the ativo
      */
-    public boolean isAtivo() {
+    public boolean getAtivo() {
         return ativo;
     }
 
@@ -159,6 +150,15 @@ public class Pessoa implements Serializable {
     public void setPessoaID(Integer pessoaID) {
         this.pessoaID = pessoaID;
     }
+    
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+    
 
 }
     

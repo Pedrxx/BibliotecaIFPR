@@ -4,6 +4,8 @@
  */
 package br.ifpr.biblioteca.view;
 
+import static java.awt.SystemColor.desktop;
+
 /**
  *
  * @author Aluno
@@ -28,20 +30,18 @@ public class TelaFuncionario extends javax.swing.JFrame {
 
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        alunoDados = new javax.swing.JMenu();
-        InserirAluno = new javax.swing.JMenuItem();
-        AlterarAluno = new javax.swing.JMenuItem();
-        ExcluirAluno = new javax.swing.JMenuItem();
-        jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        Consulta = new javax.swing.JMenu();
-        ConsultaPorAluno = new javax.swing.JMenuItem();
-        ConsultaGeral = new javax.swing.JMenuItem();
         armarioDados = new javax.swing.JMenu();
         InserirArmario = new javax.swing.JMenuItem();
-        AlterarArmario = new javax.swing.JMenuItem();
-        ExlcuirArmario = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         ConsultarArmario = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        armarioDados1 = new javax.swing.JMenu();
+        InserirAluno = new javax.swing.JMenuItem();
+        jSeparator3 = new javax.swing.JPopupMenu.Separator();
+        ConsultarArmario1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,78 +56,18 @@ public class TelaFuncionario extends javax.swing.JFrame {
             .addGap(0, 411, Short.MAX_VALUE)
         );
 
-        alunoDados.setText("Alunos");
-
-        InserirAluno.setText("Inserir");
-        InserirAluno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InserirAlunoActionPerformed(evt);
-            }
-        });
-        alunoDados.add(InserirAluno);
-
-        AlterarAluno.setText("Alterar");
-        AlterarAluno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AlterarAlunoActionPerformed(evt);
-            }
-        });
-        alunoDados.add(AlterarAluno);
-
-        ExcluirAluno.setText("Exlcuir");
-        alunoDados.add(ExcluirAluno);
-        alunoDados.add(jSeparator1);
-
-        Consulta.setText("Consultar");
-
-        ConsultaPorAluno.setText("Por Aluno");
-        ConsultaPorAluno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ConsultaPorAlunoActionPerformed(evt);
-            }
-        });
-        Consulta.add(ConsultaPorAluno);
-
-        ConsultaGeral.setText("Geral");
-        ConsultaGeral.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ConsultaGeralActionPerformed(evt);
-            }
-        });
-        Consulta.add(ConsultaGeral);
-
-        alunoDados.add(Consulta);
-
-        jMenuBar1.add(alunoDados);
-
         armarioDados.setText("Armarios");
 
-        InserirArmario.setText("Inserir");
+        InserirArmario.setText("Inserir/Alterar/Exlcuir");
         InserirArmario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 InserirArmarioActionPerformed(evt);
             }
         });
         armarioDados.add(InserirArmario);
-
-        AlterarArmario.setText("Inserir");
-        AlterarArmario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AlterarArmarioActionPerformed(evt);
-            }
-        });
-        armarioDados.add(AlterarArmario);
-
-        ExlcuirArmario.setText("Inserir");
-        ExlcuirArmario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ExlcuirArmarioActionPerformed(evt);
-            }
-        });
-        armarioDados.add(ExlcuirArmario);
         armarioDados.add(jSeparator2);
 
-        ConsultarArmario.setText("Inserir");
+        ConsultarArmario.setText("Consultar");
         ConsultarArmario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConsultarArmarioActionPerformed(evt);
@@ -135,7 +75,51 @@ public class TelaFuncionario extends javax.swing.JFrame {
         });
         armarioDados.add(ConsultarArmario);
 
+        jMenuItem1.setText("Consulta por Id");
+        armarioDados.add(jMenuItem1);
+
         jMenuBar1.add(armarioDados);
+
+        armarioDados1.setText("Alunos");
+
+        InserirAluno.setText("Cadastrar/Alterar/Excluir");
+        InserirAluno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InserirAlunoActionPerformed(evt);
+            }
+        });
+        armarioDados1.add(InserirAluno);
+        armarioDados1.add(jSeparator3);
+
+        ConsultarArmario1.setText("Consultar");
+        ConsultarArmario1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultarArmario1ActionPerformed(evt);
+            }
+        });
+        armarioDados1.add(ConsultarArmario1);
+
+        jMenuItem2.setText("Consulta por Id");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        armarioDados1.add(jMenuItem2);
+
+        jMenuBar1.add(armarioDados1);
+
+        jMenu1.setText("Reserva");
+
+        jMenuItem3.setText("Reservar");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem3);
+
+        jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
 
@@ -154,37 +138,38 @@ public class TelaFuncionario extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void InserirAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InserirAlunoActionPerformed
-        
-    }//GEN-LAST:event_InserirAlunoActionPerformed
-
-    private void AlterarAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlterarAlunoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AlterarAlunoActionPerformed
-
-    private void ConsultaPorAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaPorAlunoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ConsultaPorAlunoActionPerformed
-
-    private void ConsultaGeralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaGeralActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ConsultaGeralActionPerformed
-
-    private void InserirArmarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InserirArmarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_InserirArmarioActionPerformed
-
-    private void AlterarArmarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlterarArmarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AlterarArmarioActionPerformed
-
-    private void ExlcuirArmarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExlcuirArmarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ExlcuirArmarioActionPerformed
-
     private void ConsultarArmarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarArmarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ConsultarArmarioActionPerformed
+
+    private void InserirArmarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InserirArmarioActionPerformed
+        InsercaoArmario ia = new InsercaoArmario();
+        jDesktopPane1.add(ia);
+        ia.setVisible(true);
+        
+    }//GEN-LAST:event_InserirArmarioActionPerformed
+
+    private void InserirAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InserirAlunoActionPerformed
+        InsercaoAluno ia = new InsercaoAluno();
+        jDesktopPane1.add(ia);
+        ia.setVisible(true);
+    }//GEN-LAST:event_InserirAlunoActionPerformed
+
+    private void ConsultarArmario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarArmario1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ConsultarArmario1ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        TelaReserva tr = new TelaReserva();
+        jDesktopPane1.add(tr);
+        tr.setVisible(true);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        ViewAlunos va = new ViewAlunos();
+        jDesktopPane1.add(va);
+        va.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -225,21 +210,19 @@ public class TelaFuncionario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem AlterarAluno;
-    private javax.swing.JMenuItem AlterarArmario;
-    private javax.swing.JMenu Consulta;
-    private javax.swing.JMenuItem ConsultaGeral;
-    private javax.swing.JMenuItem ConsultaPorAluno;
     private javax.swing.JMenuItem ConsultarArmario;
-    private javax.swing.JMenuItem ExcluirAluno;
-    private javax.swing.JMenuItem ExlcuirArmario;
+    private javax.swing.JMenuItem ConsultarArmario1;
     private javax.swing.JMenuItem InserirAluno;
     private javax.swing.JMenuItem InserirArmario;
-    private javax.swing.JMenu alunoDados;
     private javax.swing.JMenu armarioDados;
+    private javax.swing.JMenu armarioDados1;
     private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JPopupMenu.Separator jSeparator3;
     // End of variables declaration//GEN-END:variables
 }
