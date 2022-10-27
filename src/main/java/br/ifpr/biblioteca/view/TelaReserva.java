@@ -4,12 +4,14 @@
  */
 package br.ifpr.biblioteca.view;
 
+import br.ifpr.biblioteca.dao.AlunoDaoImpl;
 import br.ifpr.biblioteca.dao.ArmarioDaoImpl;
 import br.ifpr.biblioteca.dao.PessoaDaoImpl;
 import br.ifpr.biblioteca.dao.ReservaDaoImpl;
 import br.ifpr.biblioteca.modelo.Aluno;
 import br.ifpr.biblioteca.modelo.Armario;
 import br.ifpr.biblioteca.modelo.Reserva;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -29,16 +31,6 @@ public class TelaReserva extends javax.swing.JInternalFrame {
         PopulaCbArmario();
     }
     
-    public boolean AbreTelaReserva(){
-        this.setVisible(true);
-        return true;
-    }
-    
-    public boolean FechaTelaReserva(){
-        this.setVisible(false);
-        return false;
-    }
-    
     private void PopulaCbArmario() {
         ArmarioDaoImpl dao = new ArmarioDaoImpl();
         List<Armario> lista = dao.buscarTodos();
@@ -48,6 +40,19 @@ public class TelaReserva extends javax.swing.JInternalFrame {
         for(Armario a : lista){
             jOpcaoArmario.addItem(a);
         }
+    }
+    
+    private int RetornaIdporCPF() {
+        AlunoDaoImpl dao = new AlunoDaoImpl();
+        
+        List<Aluno> listaAluno = new ArrayList();
+        
+        listaAluno = dao.buscarPorCPFList(jTextField1.getText());  
+        
+        int idPessoa = listaAluno.get(0).getPessoaID();
+   
+        return(idPessoa);
+        
     }
     
     
@@ -143,22 +148,22 @@ public class TelaReserva extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
-        PessoaDaoImpl pessoaDao = new PessoaDaoImpl();
-        ArmarioDaoImpl armarioDao = new ArmarioDaoImpl();
-        ReservaDaoImpl reservaDao = new ReservaDaoImpl();
         
-        int id = Integer.parseInt(jTextField1.getText());
+        /*int id = RetornaIdporCPF();
         
         int armario = jOpcaoArmario.getSelectedIndex() + 1;
         
+        ReservaDaoImpl dao = new ReservaDaoImpl();
         
         Reserva reserva = new Reserva(id, armario);
         
-        System.out.println(id +" "+ armario);
+        System.out.println(id +" "+ armario);*/
         
-        reservaDao.inserir(reserva);
+        Reserva reserva = new Reserva(01,01,01);
+        ReservaDaoImpl dao = new ReservaDaoImpl();
         
-       
+        dao.inserir(reserva);
+          
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jOpcaoArmarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jOpcaoArmarioActionPerformed

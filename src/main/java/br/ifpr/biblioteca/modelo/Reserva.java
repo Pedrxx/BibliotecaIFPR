@@ -38,14 +38,26 @@ public class Reserva {
     private Date dataEmprestimo;
     @Column(name = "data_devolucao")
     private Date dataDevolucao;
+
+    public Reserva(Integer reservaID, Integer alunoID, Integer armarioID) {
+        
+        Date dataAtual = new Date(System.currentTimeMillis()); 
+        
+        this.reservaID = reservaID;
+        this.alunoID = alunoID;
+        this.armarioID = armarioID;
+        this.dataEmprestimo = dataAtual;
+        this.dataDevolucao = dataAtual;
+    }
+    
+    
     
     public Reserva(int id_aluno, int id_armario) {
         
-        //Date dataAtual = new Date(System.currentTimeMillis());        
-              
+        Date dataAtual = new Date(System.currentTimeMillis());        
         this.alunoID = id_aluno;
         this.armarioID = id_armario;
-        //this.dataEmprestimo = dataAtual;
+        this.dataEmprestimo = dataAtual;
     }
     
 }
