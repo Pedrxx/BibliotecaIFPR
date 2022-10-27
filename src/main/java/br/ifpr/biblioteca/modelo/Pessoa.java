@@ -57,7 +57,8 @@ public class Pessoa {
         this.senha = senha;
     }
     
-        public Pessoa(String nome, String CPF, String email, String telefone, boolean ativo) {
+    public Pessoa(Integer pessoaID, String nome, String CPF, String email, String telefone, boolean ativo) {
+        this.pessoaID = pessoaID;
         this.nome = nome;
         this.CPF = CPF;
         this.email = email;

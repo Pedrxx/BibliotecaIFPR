@@ -274,7 +274,6 @@ public class InsercaoAluno extends javax.swing.JInternalFrame {
 
         );
         
-        PessoaDaoImpl daoPessoa = new PessoaDaoImpl();
         AlunoDaoImpl daoAluno = new AlunoDaoImpl();
 
         daoAluno.inserir(aluno);
@@ -307,6 +306,7 @@ public class InsercaoAluno extends javax.swing.JInternalFrame {
 
     private void AlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlterarActionPerformed
         
+        int pessoaID = Integer.parseInt(lCodigo.getText());
         String novoNome = lNome.getText();
         String novoCPF = lCPF.getText();
         String novoEmail = lEmail.getText();
@@ -315,8 +315,8 @@ public class InsercaoAluno extends javax.swing.JInternalFrame {
         
 
         Aluno aluno = new Aluno(
-            novoNome,novoCPF,novoEmail,novoTelefone,status            
-
+            pessoaID,novoNome,novoCPF,novoEmail,novoTelefone,status,
+            lRA.getText()
         );
         
         AlunoDaoImpl daoAluno = new AlunoDaoImpl();
@@ -337,7 +337,7 @@ public class InsercaoAluno extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_lRAActionPerformed
 
     
-    private void popularTabelaView(List<Pessoa> listaPessoa) {
+    private void popularTabelaView(List<Aluno> listaAluno) {
         
         DefaultTableModel modeloTabela = new DefaultTableModel();
         
@@ -348,17 +348,19 @@ public class InsercaoAluno extends javax.swing.JInternalFrame {
         modeloTabela.addColumn("Email");
         modeloTabela.addColumn("Telefone");
         modeloTabela.addColumn("CPF");
+        modeloTabela.addColumn("RA");
         modeloTabela.addColumn("Ativo");
         
-        for(Pessoa pessoa: listaPessoa) {
+        for(Aluno aluno: listaAluno) {
             modeloTabela.addRow(
                     new Object[]{
-                        pessoa.getPessoaID(),
-                        pessoa.getNome(),
-                        pessoa.getEmail(),
-                        pessoa.getTelefone(),
-                        pessoa.getCPF(),
-                        pessoa.getAtivo()
+                        aluno.getPessoaID(),
+                        aluno.getNome(),
+                        aluno.getEmail(),
+                        aluno.getTelefone(),
+                        aluno.getCPF(),
+                        aluno.getRA(),
+                        aluno.getAtivo()
                 }
             );
         }
@@ -366,13 +368,13 @@ public class InsercaoAluno extends javax.swing.JInternalFrame {
     }
     
     private void atualizarTabelaView() {
-        PessoaDaoImpl dao = new PessoaDaoImpl();
+        AlunoDaoImpl dao = new AlunoDaoImpl();
         
-        List<Pessoa> listaPessoa = new ArrayList();
+        List<Aluno> listaAluno = new ArrayList();
         
-        listaPessoa = dao.buscarTodos();
+        listaAluno = dao.buscarTodos();
         
-        this.popularTabelaView(listaPessoa);
+        this.popularTabelaView(listaAluno);
     }
     
     private void trazerCamposPessoa() {
