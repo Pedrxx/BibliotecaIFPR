@@ -14,13 +14,15 @@ import java.util.List;
 public interface ArmarioDao {
     
     public List<Armario> buscarTodos();
+    
+    public List<Armario> buscarTodosReservados();
 
     public Armario buscarPorId(Integer id);
 
-    public void atualizar(Armario localizacao);
+    public void atualizar(Armario armario);
 
-    public void excluir(Armario localizacao);
+    public void excluir(Armario armario);
 
-    public void inserir(Armario localizacao);
+    public void inserir(Armario armario);
     
 }

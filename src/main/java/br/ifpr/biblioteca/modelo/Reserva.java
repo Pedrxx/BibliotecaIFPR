@@ -34,20 +34,27 @@ public class Reserva {
     @Column(name = "id_armario", unique = false, nullable = false)
     private Integer  armarioID;
     
+    private boolean ativa;
+    
     @Column(name = "data_emprestimo")
     private Date dataEmprestimo;
     @Column(name = "data_devolucao")
     private Date dataDevolucao;
+    
+    public Reserva () {}
 
-    public Reserva(Integer reservaID, Integer alunoID, Integer armarioID) {
+    public Reserva(Integer alunoID, Integer armarioID) {
         
-        Date dataAtual = new Date(System.currentTimeMillis()); 
+        Date dataAtual = new Date(); 
+        
+        dataAtual.getDate();
         
         this.reservaID = reservaID;
         this.alunoID = alunoID;
         this.armarioID = armarioID;
         this.dataEmprestimo = dataAtual;
-        this.dataDevolucao = dataAtual;
+        //this.dataDevolucao = dataAtual;
+        this.ativa = true;
     }
     
     
@@ -59,5 +66,46 @@ public class Reserva {
         this.armarioID = id_armario;
         this.dataEmprestimo = dataAtual;
     }
+
+    public Integer getReservaID() {
+        return reservaID;
+    }
+
+    public void setReservaID(Integer reservaID) {
+        this.reservaID = reservaID;
+    }
+
+    public Integer getAlunoID() {
+        return alunoID;
+    }
+
+    public void setAlunoID(Integer alunoID) {
+        this.alunoID = alunoID;
+    }
+
+    public Integer getArmarioID() {
+        return armarioID;
+    }
+
+    public void setArmarioID(Integer armarioID) {
+        this.armarioID = armarioID;
+    }
+
+    public Date getDataEmprestimo() {
+        return dataEmprestimo;
+    }
+
+    public void setDataEmprestimo(Date dataEmprestimo) {
+        this.dataEmprestimo = dataEmprestimo;
+    }
+
+    public Date getDataDevolucao() {
+        return dataDevolucao;
+    }
+
+    public void setDataDevolucao(Date dataDevolucao) {
+        this.dataDevolucao = dataDevolucao;
+    }
+    
     
 }

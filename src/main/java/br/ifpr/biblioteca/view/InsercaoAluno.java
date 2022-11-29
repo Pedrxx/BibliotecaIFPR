@@ -11,7 +11,6 @@ import br.ifpr.biblioteca.modelo.Aluno;
 import br.ifpr.biblioteca.modelo.Armario;
 import br.ifpr.biblioteca.modelo.Pessoa;
 import javax.swing.JOptionPane;
-import br.ifpr.biblioteca.view.TelaReserva;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -301,6 +300,25 @@ public class InsercaoAluno extends javax.swing.JInternalFrame {
 
     private void ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExcluirActionPerformed
 
+        int pessoaID = Integer.parseInt(lCodigo.getText());
+        String novoNome = lNome.getText();
+        String novoCPF = lCPF.getText();
+        String novoEmail = lEmail.getText();
+        String novoTelefone = lTelefone.getText();
+        boolean status = true;
+        
+
+        Aluno aluno = new Aluno(
+            pessoaID,novoNome,novoCPF,novoEmail,novoTelefone,status,
+            lRA.getText()
+        );
+        
+        AlunoDaoImpl daoAluno = new AlunoDaoImpl();
+
+        daoAluno.excluir(aluno);
+
+        JOptionPane.showMessageDialog(null, "Aluno "+ lNome.getText()+" exlcuido com sucesso!");
+        
         atualizarTabelaView();
     }//GEN-LAST:event_ExcluirActionPerformed
 

@@ -15,8 +15,10 @@ import java.util.List;
 public interface ReservaDao {
     
     public List<Reserva> buscarTodos();
-
+    
     public Reserva buscarPorId(Integer id);
+    
+    public List<Reserva> buscaIdReservaPorIdAluno(int id);
 
     public void atualizar(Reserva reserva);
 

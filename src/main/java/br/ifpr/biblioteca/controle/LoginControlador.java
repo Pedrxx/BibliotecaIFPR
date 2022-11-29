@@ -4,7 +4,7 @@
  */
 package br.ifpr.biblioteca.controle;
 
-import br.ifpr.biblioteca.servico.LoginServico;
+import br.ifpr.biblioteca.servico.ValidaUser;
 
 /**
  *
@@ -14,7 +14,7 @@ public class LoginControlador {
 
     public boolean verifica(String RA, String senha) {
         
-        return LoginServico.verifica(RA,senha);
+        return ValidaUser.verifica(RA,senha);
         
     }
     

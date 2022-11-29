@@ -5,7 +5,7 @@
 package br.ifpr.biblioteca.controle;
 
 import br.ifpr.biblioteca.servico.CadastroServico;
-import br.ifpr.biblioteca.servico.LoginServico;
+import br.ifpr.biblioteca.servico.ValidaUser;
 
 /**
  *

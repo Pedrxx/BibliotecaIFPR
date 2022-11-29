@@ -28,6 +28,11 @@ public class Armario{
         this.ativo = ativo;
         this.locado = locado;
     }
+    
+    public Armario(Integer id) {
+        this.armarioID = id;
+        this.setLocado();
+    }
 
     /**
      * @return the numero
@@ -74,8 +79,8 @@ public class Armario{
     /**
      * @param locado the locado to set
      */
-    public void setLocado(String locado) {
-        this.locado = locado;
+    public void setLocado() {
+        this.locado = "Locado";
     }
 
     @Override

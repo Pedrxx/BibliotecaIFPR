@@ -2,7 +2,9 @@
 import br.ifpr.biblioteca.conexao.HibernateUtil;
 import br.ifpr.biblioteca.dao.PessoaDao;
 import br.ifpr.biblioteca.dao.PessoaDaoImpl;
+import br.ifpr.biblioteca.dao.ReservaDaoImpl;
 import br.ifpr.biblioteca.modelo.Pessoa;
+import br.ifpr.biblioteca.modelo.Reserva;
 import org.hibernate.Session;
 import java.util.Date;
 
@@ -22,6 +24,20 @@ public class TesteHibernate {
         HibernateUtil sessao = new HibernateUtil();
         
         sessao.getSession();
+
+        
+        ReservaDaoImpl dao = new ReservaDaoImpl();
+        Reserva reserva = new Reserva(01,01);
+        
+        System.out.println(reserva.getAlunoID());
+        System.out.println(reserva.getArmarioID());
+        System.out.println(reserva.getReservaID());
+        System.out.println(reserva.getDataDevolucao());
+        System.out.println(reserva.getDataEmprestimo());
+ 
+        dao.inserir(reserva);
+        
+        HibernateUtil.encerraSession();
         /*
         sessao.beginTransaction();
         

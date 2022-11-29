@@ -56,7 +56,7 @@ public class AlunoDaoImpl implements AlunoDao {
         List<Aluno> aluno = null;
         try {
             sessao.beginTransaction();
-            aluno = (List<Aluno>) this.sessao.get(Aluno.class, id);
+            aluno = (List<Aluno>) this.sessao.createQuery("from Aluno where id_pessoa = " + id).list();
             sessao.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();

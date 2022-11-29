@@ -7,7 +7,6 @@ package br.ifpr.biblioteca.view;
 import br.ifpr.biblioteca.dao.ArmarioDaoImpl;
 import br.ifpr.biblioteca.modelo.Armario;
 import javax.swing.JOptionPane;
-import br.ifpr.biblioteca.view.TelaReserva;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.util.ArrayList;
 import java.util.List;
@@ -115,7 +114,7 @@ public class InsercaoArmario extends javax.swing.JInternalFrame {
         BoxAtivo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo ", "Inativo" }));
         BoxAtivo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        BoxLocado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Locado", "Disponivel" }));
+        BoxLocado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Disponivel", "Locado" }));
         BoxLocado.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         TabelaArmario.setModel(new javax.swing.table.DefaultTableModel(
@@ -211,23 +210,6 @@ public class InsercaoArmario extends javax.swing.JInternalFrame {
        
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
-
-        
-        int CodArmario = Integer.parseInt(jCodAluno.getText());
-        String ativo = BoxAtivo.getSelectedItem().toString();
-        String locado = BoxLocado.getSelectedItem().toString();
-        
-        Armario armario = new Armario(CodArmario, ativo, locado);
-        ArmarioDaoImpl armarioDao = new ArmarioDaoImpl();
-        
-        armarioDao.inserir(armario);
-        
-        JOptionPane.showMessageDialog(null, "Armario "+ jCodAluno.getText()+" cadastrado com sucesso!");
-        
-        atualizarTabelaArmario();
-    }//GEN-LAST:event_CadastrarActionPerformed
-
     private void AlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlterarActionPerformed
         int CodArmario = Integer.parseInt(jCodAluno.getText());
         String ativo = BoxAtivo.getSelectedItem().toString();
@@ -248,16 +230,32 @@ public class InsercaoArmario extends javax.swing.JInternalFrame {
         int CodArmario = Integer.parseInt(jCodAluno.getText());
         String ativo = BoxAtivo.getSelectedItem().toString();
         String locado = BoxLocado.getSelectedItem().toString();
-        
+
         Armario armario = new Armario(CodArmario, ativo, locado);
         ArmarioDaoImpl armarioDao = new ArmarioDaoImpl();
-        
+
         armarioDao.excluir(armario);
-        
+
         JOptionPane.showMessageDialog(null, "Armario "+ jCodAluno.getText()+" exlcuido com sucesso!");
-        
+
         atualizarTabelaArmario();
     }//GEN-LAST:event_ExcluirActionPerformed
+
+    private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
+
+        int CodArmario = Integer.parseInt(jCodAluno.getText());
+        String ativo = BoxAtivo.getSelectedItem().toString();
+        String locado = BoxLocado.getSelectedItem().toString();
+
+        Armario armario = new Armario(CodArmario, ativo, locado);
+        ArmarioDaoImpl armarioDao = new ArmarioDaoImpl();
+
+        armarioDao.inserir(armario);
+
+        JOptionPane.showMessageDialog(null, "Armario "+ jCodAluno.getText()+" cadastrado com sucesso!");
+
+        atualizarTabelaArmario();
+    }//GEN-LAST:event_CadastrarActionPerformed
 
     
     private void popularTabelaArmario(List<Armario> listaArmario) {

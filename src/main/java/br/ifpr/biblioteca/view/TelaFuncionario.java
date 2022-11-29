@@ -33,12 +33,9 @@ public class TelaFuncionario extends javax.swing.JFrame {
         armarioDados = new javax.swing.JMenu();
         InserirArmario = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
-        ConsultarArmario = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
         armarioDados1 = new javax.swing.JMenu();
         InserirAluno = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
-        ConsultarArmario1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -67,17 +64,6 @@ public class TelaFuncionario extends javax.swing.JFrame {
         armarioDados.add(InserirArmario);
         armarioDados.add(jSeparator2);
 
-        ConsultarArmario.setText("Consultar");
-        ConsultarArmario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ConsultarArmarioActionPerformed(evt);
-            }
-        });
-        armarioDados.add(ConsultarArmario);
-
-        jMenuItem1.setText("Consulta por Id");
-        armarioDados.add(jMenuItem1);
-
         jMenuBar1.add(armarioDados);
 
         armarioDados1.setText("Alunos");
@@ -91,15 +77,7 @@ public class TelaFuncionario extends javax.swing.JFrame {
         armarioDados1.add(InserirAluno);
         armarioDados1.add(jSeparator3);
 
-        ConsultarArmario1.setText("Consultar");
-        ConsultarArmario1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ConsultarArmario1ActionPerformed(evt);
-            }
-        });
-        armarioDados1.add(ConsultarArmario1);
-
-        jMenuItem2.setText("Consulta por Id");
+        jMenuItem2.setText("Consultar");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
@@ -111,7 +89,7 @@ public class TelaFuncionario extends javax.swing.JFrame {
 
         jMenu1.setText("Reserva");
 
-        jMenuItem3.setText("Reservar");
+        jMenuItem3.setText("Consultar");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
@@ -138,10 +116,6 @@ public class TelaFuncionario extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ConsultarArmarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarArmarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ConsultarArmarioActionPerformed
-
     private void InserirArmarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InserirArmarioActionPerformed
         InsercaoArmario ia = new InsercaoArmario();
         jDesktopPane1.add(ia);
@@ -155,14 +129,8 @@ public class TelaFuncionario extends javax.swing.JFrame {
         ia.setVisible(true);
     }//GEN-LAST:event_InserirAlunoActionPerformed
 
-    private void ConsultarArmario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarArmario1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ConsultarArmario1ActionPerformed
-
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        TelaReserva tr = new TelaReserva();
-        jDesktopPane1.add(tr);
-        tr.setVisible(true);
+        
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -210,8 +178,6 @@ public class TelaFuncionario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem ConsultarArmario;
-    private javax.swing.JMenuItem ConsultarArmario1;
     private javax.swing.JMenuItem InserirAluno;
     private javax.swing.JMenuItem InserirArmario;
     private javax.swing.JMenu armarioDados;
@@ -219,7 +185,6 @@ public class TelaFuncionario extends javax.swing.JFrame {
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPopupMenu.Separator jSeparator2;

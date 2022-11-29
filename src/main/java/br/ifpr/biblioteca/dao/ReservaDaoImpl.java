@@ -4,6 +4,7 @@
  */
 package br.ifpr.biblioteca.dao;
 
+import br.ifpr.biblioteca.conexao.HibernateUtil;
 import br.ifpr.biblioteca.modelo.Funcionario;
 import br.ifpr.biblioteca.modelo.Pessoa;
 import br.ifpr.biblioteca.modelo.Reserva;
@@ -16,14 +17,14 @@ import org.hibernate.Session;
  */
 public class ReservaDaoImpl implements ReservaDao {
 
-    private Session sessao;
+    private Session sessao = HibernateUtil.getSession();
     
     @Override
     public List<Reserva> buscarTodos() {
         List<Reserva> reserva = null;
         try {
             sessao.beginTransaction();
-            reserva = (List<Reserva>) this.sessao.createQuery("from Funcionario").list();
+            reserva = (List<Reserva>) this.sessao.createQuery("from Reserva").list();
             sessao.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
@@ -75,6 +76,21 @@ public class ReservaDaoImpl implements ReservaDao {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public List<Reserva> buscaIdReservaPorIdAluno(int id) {
+        List<Reserva> reserva = null;
+        try {
+            sessao.beginTransaction();
+            reserva = (List<Reserva>) this.sessao.createQuery("from Reserva where id_aluno = "+ id).list();
+            sessao.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return reserva;
+        
+
     }
     
 }

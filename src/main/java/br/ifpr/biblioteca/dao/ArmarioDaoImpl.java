@@ -34,6 +34,19 @@ public class ArmarioDaoImpl implements ArmarioDao {
         }
         return armario;
     }
+    
+    @Override
+    public List<Armario> buscarTodosReservados() {
+        List<Armario> armario = null;
+        try {
+            sessao.beginTransaction();
+            armario = (List<Armario>) this.sessao.createQuery("from Armario where armario_locado = 'Locado' and id_pessoa").list();
+            sessao.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return armario;
+    }
 
     @Override
     public Armario buscarPorId(Integer id) {
@@ -63,6 +76,7 @@ public class ArmarioDaoImpl implements ArmarioDao {
     public void atualizar(Armario armario) {
         try {
             sessao.beginTransaction();
+            sessao.clear();
             sessao.update(armario);
             sessao.getTransaction().commit();
         } catch (Exception e) {
